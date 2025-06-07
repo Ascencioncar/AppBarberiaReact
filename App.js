@@ -12,8 +12,6 @@ import {
   Alert,
   TextInput,
   SafeAreaView,
-  KeyboardAvoidingView,
-  Platform
 } from 'react-native';
 
 const API_URL = 'https://backend-barberia-gamma.vercel.app';
