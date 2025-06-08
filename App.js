@@ -237,12 +237,14 @@ const BarberiaApp = () => {
     </View>
   );
 
+  const today = new Date();
+  const formattedToday = today.toLocaleDateString('co-CO', { day: 'numeric', month: 'long', year: 'numeric' }).toString();
   const StatsSection = () => {
     const stats = {
       total: appointments.length,
       confirmadas: appointments.filter(a => a.status === 'confirmado').length,
-      canceladas: appointments.filter(a => a.status === 'canceladas').length,
-      hoy: appointments.filter(a => a.date.includes('5 de Junio')).length
+      canceladas: appointments.filter(a => a.status === 'cancelado').length,
+      hoy: appointments.filter(a => a.date.includes(formattedToday)).length
     };
     return (
       <View style={styles.statsSection}>
@@ -270,7 +272,7 @@ const BarberiaApp = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#333" />
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>✂️ Barbería El Estilo</Text>
+        <Text style={styles.headerTitle}>✂️ BARBER MOYAS</Text>
         <Text style={styles.headerSubtitle}>Gestión de Citas</Text>
       </View>
       <StatsSection />
@@ -365,6 +367,7 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 15,
     fontSize: 16,
+    backgroundColor: '#f9f9f9',
   },
   filterButtons: {
     flexDirection: 'row',
@@ -387,8 +390,8 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   appointmentsList: {
-    flex: 1,
     paddingHorizontal: 15,
+    paddingBottom: 20,
   },
   appointmentCard: {
     backgroundColor: 'white',
