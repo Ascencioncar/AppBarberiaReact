@@ -238,7 +238,7 @@ const BarberiaApp = () => {
   );
 
   const today = new Date();
-  const formattedToday = today.toLocaleDateString('co-CO', { day: 'numeric', month: 'long', year: 'numeric' }).toString();
+  const formattedToday = today.toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' }).toString();
   const StatsSection = () => {
     const stats = {
       total: appointments.length,
